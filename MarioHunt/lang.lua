@@ -20,7 +20,7 @@ IF something you want to translate does not use this table, you can add it to yo
 
 -- this is the translate command, it supports up to two blanks
 function trans(id,format,format2_,lang_)
-  local usingLang = lang_ or lang or "en"
+  local usingLang = lang_ or lang or "cr"
   local format2 = format2_ or 10
   if not id then
     return "INVALID"
@@ -32,10 +32,10 @@ function trans(id,format,format2_,lang_)
   if not langdata then return id end
 
   if not langdata[usingLang] then
-    usingLang = "en"
+    usingLang = "cr"
   end
 
-  local translation = langdata[usingLang][id] or langdata["en"][id] or id
+  local translation = langdata[usingLang][id] or langdata["cr"][id] or id
   if format then
     translation = string.format(translation,format,format2)
   end
@@ -55,17 +55,17 @@ langdata = {}
 
 -- below is where all of the language data starts
 
-langdata["en"] = -- the letters here will be what you type for the command (ex: to switch to this language, type "/lang en")
+langdata["cr"] = -- the letters here will be what you type for the command (ex: to switch to this language, type "/lang en")
 {
   -- fullname for auto select (make sure this matches in-game under Misc -> Languages)
-  fullname = "English",
+  fullname = "Haitian Creole",
 
   -- name in the built-in menu
-  name_menu = "English",
+  name_menu = "Haitian Creole",
 
   -- global command info
   to_switch = "Type \"/lang %s\" to switch languages",
-  switched = "Switched to English!", -- Replace "English" with the name of this language
+  switched = "Switched to Haitian Creole!", -- Replace "English" with the name of this language
   rule_command = "Type /rules to show this message again",
   open_menu = "Type /mh or press L + Start to open the menu",
   stalk = "Use /stalk to warp to runners!",
